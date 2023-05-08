@@ -1,0 +1,26 @@
+<script>document.addEventListener('DOMContentLoaded', () => {
+      const winners = document.querySelector("#winners")
+  
+      if(!winners.classList.contains('bg-image')) {
+          const editColor = () => {
+              if(window.innerWidth > 991) {
+                  winners.style.backgroundColor = "red"
+              }
+              if(window.innerWidth < 991 && window.innerWidth > 768) {
+                  winners.style.backgroundColor = "purple"
+              }
+  
+              if(window.innerWidth < 768) {
+                  winners.style.backgroundColor = "blue"
+              }
+          }
+          editColor()
+  
+          window.addEventListener('resize', () => {
+              editColor()
+          })
+  
+      } else {
+          console.log('class .bg-image exists')
+      }
+  })</script><!DOCTYPE html><html class="page" lang="ru"><head><meta charset="UTF-8"><meta content="IE=edge" http-equiv="X-UA-Compatible"><meta content="width=device-width,initial-scale=1" name="viewport"><title>Bufsy</title><link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet"><link href="css/vendor.css" rel="stylesheet"><link href="css/main.css" rel="stylesheet"></head><body class="page__body" id="body"><div class="site-container"><div class="container"><ul class="winners bg-image" id="winners"><li class="winners__container"><h2 class="row winners__heading"><span class="col-lg-11">Победители</span><span class="col-lg-1 winners__heading-icon"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"></path></svg></span></h2><div class="row winners__content"><h2 class="col-lg-12 winners__content-heading">Победители</h2><div class="col-lg-12 winners__content-tabs" id="pageButtonsList"></div><div class="col-lg-12 winners__content-users"><div class="col-lg-12 winners__users-thead"><span class="col-lg-3">Имя</span><span class="col-lg-3">Email</span><span class="col-lg-6">Приз</span></div><ul class="col-lg-12 winners__users-tbody" id="usersList"></ul></div></div></li></ul></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script><script src="js/main.js"></script></body></html>
