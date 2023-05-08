@@ -1,0 +1,125 @@
+.winners {
+    width: 100%;
+
+    overflow: hidden;
+
+    .winners__heading {
+        font-size: 24px;
+        font-weight: 500;
+        margin: 0;
+        position: relative;
+        padding: 30px 0px;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        background: #c0c0c0;
+        cursor: pointer;
+
+        &.active {
+            .winners__heading-icon {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .winners__heading-icon {
+            @include flex;
+            justify-content: flex-end;
+
+            svg {
+                transition: transform 0.4s ease;
+            }
+        }
+    }
+
+    .winners__content {
+        padding: 10px 0px;
+        border-bottom: 1px solid #c0c0c0;
+        display: none;
+
+        .winners__content-heading {
+            text-align: center;
+            font-size: 72px;
+            font-weight: 700;
+            margin: 60px 0px;
+            // color: #9BA0AA;
+            color: #fff
+        }
+
+        .winners__content-tabs {
+            @include flex-all-center;
+            margin-bottom: 50px;
+
+            button {
+                @include flex-v-center;
+                padding: 9px 15px;
+                border: 1px solid #9BA0AA;
+
+                &.active {
+                    background-color: #9BA0AA;
+                    color: #fff;
+                }
+
+                &:first-child {
+                    border-radius: 50px 0px 0px 50px;
+                }
+
+                &:last-child {
+                    border-radius: 0px 50px 50px 0px;
+                }
+            }
+        }
+
+        .winners__content-users {
+            // background-color: #fff;
+            color: #fff;
+        }
+
+        .winners__users-thead {
+            padding: 20px 0px;
+            border-bottom: 1px solid #9BA0AA;
+        }
+
+        .winners__users-tbody {
+            padding: 20px 0px;
+
+            &.animation {
+                animation: loadUsersList 0.5s;
+            }
+        }
+
+        .winners__tbody-user {
+            padding: 25px 0px;
+            @include flex-v-center;
+        }
+    }
+}
+
+.bg-image {
+    background-image: url(https://plus.unsplash.com/premium_photo-1679260771095-b2409685e004?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (max-width: 991px) {
+        background-image: url(https://images.unsplash.com/photo-1682762209835-a06bf7c87b23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+    }
+
+    @media (max-width: 767px) {
+        background-image: url(https://plus.unsplash.com/premium_photo-1682075199550-037fff6d7486?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=757&q=80);
+    }
+
+
+}
+
+@keyframes loadUsersList {
+    from {
+        opacity: 0.2;
+        transform: translateX(-50%)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}

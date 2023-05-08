@@ -1,0 +1,68 @@
+ruby:
+    title = 'Победители'
+    name  = 'Имя'
+    email  = 'Email'
+    prize  = 'Приз'
+
+javascript:
+    document.addEventListener('DOMContentLoaded', () => {
+        const winners = document.querySelector("#winners")
+
+        if(!winners.classList.contains('bg-image')) {
+            const editColor = () => {
+                if(window.innerWidth > 991) {
+                    winners.style.backgroundColor = "red"
+                }
+                if(window.innerWidth < 991 && window.innerWidth > 768) {
+                    winners.style.backgroundColor = "purple"
+                }
+
+                if(window.innerWidth < 768) {
+                    winners.style.backgroundColor = "blue"
+                }
+            }
+            editColor()
+
+            window.addEventListener('resize', () => {
+                editColor()
+            })
+
+        } else {
+            console.log('class .bg-image exists')
+        }
+    })
+
+
+doctype html
+html.page lang="ru"
+    head
+        meta charset="UTF-8"/
+        meta http-equiv="X-UA-Compatible" content="IE=edge"/
+        meta name="viewport" content="width=device-width, initial-scale=1.0"/
+        title Bufsy
+        link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/
+        link rel="stylesheet" href="css/vendor.css"/
+        link rel="stylesheet" href="css/main.css"/
+    body#body.page__body
+        div.site-container
+            div.container
+                ul#winners.winners.bg-image
+                    li.winners__container
+                        h2.row.winners__heading
+                            span.col-lg-11 = title
+                            span.col-lg-1.winners__heading-icon
+                                svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"
+                        div.row.winners__content
+                            h2.col-lg-12.winners__content-heading = title
+                            div#pageButtonsList.col-lg-12.winners__content-tabs
+                            div.col-lg-12.winners__content-users
+                                div.col-lg-12.winners__users-thead
+                                    span.col-lg-3 = name
+                                    span.col-lg-3 = email
+                                    span.col-lg-6 = prize
+                                ul#usersList.col-lg-12.winners__users-tbody
+
+        script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        script src="js/main.js"
