@@ -1,3 +1,9 @@
+$fz-title: 72px;
+$fz-tabs: 18px;
+$fz-users: 20px;
+
+
+
 .winners {
     width: 100%;
 
@@ -23,7 +29,7 @@
         }
 
         .winners__heading-icon {
-            @include flex;
+            display: flex;
             justify-content: flex-end;
 
             svg {
@@ -39,20 +45,20 @@
 
         .winners__content-heading {
             text-align: center;
-            font-size: 72px;
+            font-size: $fz-title;
             font-weight: 700;
             margin: 60px 0px;
-            // color: #9BA0AA;
             color: #fff
         }
 
         .winners__content-tabs {
             @include flex-all-center;
             margin-bottom: 50px;
+            font-size: $fz-tabs;
 
             button {
                 @include flex-v-center;
-                padding: 9px 15px;
+                padding: 9px 29px;
                 border: 1px solid #9BA0AA;
 
                 &.active {
@@ -71,7 +77,7 @@
         }
 
         .winners__content-users {
-            // background-color: #fff;
+            font-size: $fz-users;
             color: #fff;
         }
 
@@ -90,7 +96,107 @@
 
         .winners__tbody-user {
             padding: 25px 0px;
-            @include flex-v-center;
+
+            div {
+                &:first-child {
+                    display: none;
+                }
+
+                @include flex-v-center;
+            }
+        }
+    }
+}
+
+// @media (max-width: 1200px) {}
+
+@media (max-width: 992px) {
+    $fz-title: 46px;
+    $fz-tabs: 16px;
+    $fz-users: 16px;
+
+    .winners {
+        .winners__heading {
+            padding: 20px 0px;
+        }
+
+        .winners__content {
+
+            .winners__content-heading {
+                font-size: $fz-title;
+            }
+
+            .winners__content-tabs {
+                font-size: $fz-tabs;
+
+                button {
+                    padding: 10px 20px;
+                }
+            }
+
+            .winners__content-users {
+                font-size: $fz-users;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    $fz-title: 36px;
+    $fz-tabs: 11px;
+
+    .winners {
+        .winners__heading {
+            padding: 15px 0px;
+        }
+
+        .winners__content {
+            .winners__content-heading {
+                font-size: $fz-title;
+                margin: 30px 0px;
+            }
+
+            .winners__content-tabs {
+                margin-bottom: 25px;
+                font-size: $fz-tabs;
+
+                button {
+                    padding: 11px 7px;
+                }
+            }
+
+            .winners__users-thead {
+                display: none;
+            }
+
+            .winners__users-tbody {
+                padding: 0px;
+            }
+
+            .winners__tbody-user {
+                padding: 10px 0px;
+                border-bottom: 1px solid #9BA0AA;
+
+                div {
+                    display: block !important;
+
+                    &:first-child {
+                        font-size: 14px;
+                        line-height: 1.2;
+                    }
+
+                    &:last-child {
+                        font-size: 16px;
+                    }
+
+                    span {
+                        &:not(:last-child) {
+                            margin-bottom: 11px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -98,14 +204,14 @@
 .bg-image {
     background-image: url(https://plus.unsplash.com/premium_photo-1679260771095-b2409685e004?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     background-size: cover;
 
-    @media (max-width: 991px) {
+    @media (max-width: 992px) {
         background-image: url(https://images.unsplash.com/photo-1682762209835-a06bf7c87b23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
         background-image: url(https://plus.unsplash.com/premium_photo-1682075199550-037fff6d7486?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=757&q=80);
     }
 
